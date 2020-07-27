@@ -14,6 +14,8 @@
                 <el-menu-item index="/main/user/userEdit">编辑用户</el-menu-item>
                 <el-menu-item index="/main/user/userAddress">用户地址</el-menu-item>
                 <el-menu-item index="/main/user/userAdd">添加用户</el-menu-item>
+                <el-menu-item index="/main/user/addressEdit">修改地址</el-menu-item>
+                <el-menu-item index="/main/user/addressAdd">添加地址</el-menu-item>
             </el-menu>
         </el-header>
 

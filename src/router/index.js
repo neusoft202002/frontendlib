@@ -32,6 +32,8 @@ import StocksWarning from "../components/warning/StocksWarning";
 import MyCart from "../components/mine/MyCart";
 import MyOrder from "../components/mine/MyOrder";
 import MyDelivery from "../components/mine/MyDelivery";
+import AddressEdit from "../components/user/AddressEdit";
+import AddressAdd from "../components/user/AddressAdd";
 
 Vue.use(VueRouter)
 
@@ -85,6 +87,17 @@ Vue.use(VueRouter)
             name: 'UserAdd',
             component: UserAdd
           },
+          {
+            path: 'addressEdit',
+            name: 'AddressEdit',
+            component: AddressEdit
+          },
+
+          {
+            path: 'addressAdd',
+            name: 'AddressAdd',
+            component: AddressAdd
+          }
         ]
       },
       {

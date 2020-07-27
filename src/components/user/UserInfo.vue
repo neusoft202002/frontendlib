@@ -39,13 +39,17 @@
         },
         methods: {
             editClick(row) {
-                axios.get("http://localhost:8888/getAllUser").then(res => {
-                    console.log(res);
+                this.$router.push({
+                    name: 'UserEdit',
+                    params: {
+                        id: row.id
+                    }
                 })
             },
             deleteClick(row) {
                 axios.get("http://localhost:8888/deleteUser/" + row.id).then(res => {
                     console.log(res);
+                    this.tableData = res.data
                 })
             }
         }

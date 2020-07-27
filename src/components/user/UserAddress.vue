@@ -33,36 +33,45 @@
             }
         },
         created() {
-            axios.get("http://localhost:8888/getAddress").then(res => {
-                for (let item of res.data) {
-                    for (let addressElement of item.address) {
-                        if (addressElement.address != null) {
-                            this.tableData.push({
-                                userId: addressElement.userId,
-                                addressId: addressElement.addressId,
-                                name: item.name,
-                                receiverName: addressElement.receiverName,
-                                phone: addressElement.phone,
-                                address: addressElement.address
-                            })
-                        }
-                    }
-                }
-            }).catch(err => {
-                console.log(err);
-            })
+            this.getAllAddress();
         },
         methods: {
-            test() {
+            getAllAddress() {
+                this.tableData = []
                 axios.get("http://localhost:8888/getAddress").then(res => {
-                    console.log(res);
+                    for (let item of res.data) {
+                        for (let addressElement of item.address) {
+                            if (addressElement.address != null) {
+                                this.tableData.push({
+                                    userId: addressElement.userId,
+                                    addressId: addressElement.addressId,
+                                    name: item.name,
+                                    receiverName: addressElement.receiverName,
+                                    phone: addressElement.phone,
+                                    address: addressElement.address
+                                })
+                            }
+                        }
+                    }
                 }).catch(err => {
                     console.log(err);
                 })
             },
             editClick(row) {
+                console.log(row)
+                this.$router.push({
+                    name: 'AddressEdit',
+                    params: {
+                        userId: row.userId,
+                        addressId: row.addressId
+                    }
+                })
             },
             deleteClick(row) {
+                axios.get("http://localhost:8888/deleteAddress",
+                    {params: {userId: row.userId, addressId: row.addressId}}).then(res => {
+                    this.getAllAddress();
+                })
             }
         }
     }
