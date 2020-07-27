@@ -1,16 +1,37 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Login from "@/views/Login";
-import Main from "@/views/Main"
-import UserInfo from "@/components/User/UserInfo";
-import User from "@/views/User";
-import Product from "@/views/Product";
-import UserEdit from "@/components/User/UserEdit";
-import UserAddress from "@/components/User/UserAddress";
-import UserAdd from "@/components/User/UserAdd";
-import ProductInfo from "@/components/Product/ProductInfo";
-import ProductStocks from "@/components/Product/ProductStocks";
-import ProductAdd from "@/components/Product/ProductAdd";
+import Login from "../views/Login";
+import Main from "../views/Main";
+import User from "../views/User";
+import UserInfo from "../components/user/UserInfo";
+import UserEdit from "../components/user/UserEdit";
+import UserAddress from "../components/user/UserAddress";
+import UserAdd from "../components/user/UserAdd";
+import Product from "../views/Product";
+import ProductInfo from "../components/product/ProductInfo";
+import ProductEdit from "../components/product/ProductEdit";
+import ProductStocks from "../components/product/ProductStocks";
+import ProductAdd from "../components/product/ProductAdd";
+import Cart from "../views/Cart";
+import Order from "../views/Order";
+import Delivery from "../views/Delivery";
+import Warning from "../views/Warning";
+import CartAll from "../components/cart/CartAll";
+import CartAlone from "../components/cart/CartAlone";
+import Mine from "../views/Mine";
+import OrderInvalid from "../components/order/OrderInvalid";
+import OrderPay from "../components/order/OrderPay";
+import OrderPayed from "../components/order/OrderPayed";
+import OrderStatistical from "../components/order/OrderStatistical";
+import Delivering from "../components/delivery/Delivering";
+import DeliveryConfirm from "../components/delivery/DeliveryConfirm";
+import DeliveryFinish from "../components/delivery/DeliveryFinish";
+import UserWarning from "../components/warning/UserWarning";
+import OrderWarning from "../components/warning/OrderWarning";
+import StocksWarning from "../components/warning/StocksWarning";
+import MyCart from "../components/mine/MyCart";
+import MyOrder from "../components/mine/MyOrder";
+import MyDelivery from "../components/mine/MyDelivery";
 
 Vue.use(VueRouter)
 
@@ -84,7 +105,7 @@ Vue.use(VueRouter)
           {
             path: 'productEdit',
             name: 'ProductEdit',
-            component: UserEdit
+            component: ProductEdit
           },
           {
             path: 'productStocks',
@@ -96,6 +117,141 @@ Vue.use(VueRouter)
             name: 'ProductAdd',
             component: ProductAdd
           },
+        ]
+      },
+      {
+        path: 'cart',
+        name: 'Cart',
+        component: Cart,
+        children: [
+          {
+            path: '',
+            name: 'DefaultCart',
+            redirect: 'cartAll',
+          },
+          {
+            path: 'cartAll',
+            name: 'CartAll',
+            component: CartAll,
+          },
+          {
+            path: 'cartAlone',
+            name: 'CartAlone',
+            component: CartAlone
+          }
+        ]
+      },
+      {
+        path: 'order',
+        name: 'Order',
+        component: Order,
+        children: [
+          {
+            path: '',
+            name: 'DefaultOrder',
+            redirect: 'orderInvalid'
+          },
+          {
+            path: 'orderInvalid',
+            name: 'OrderInvalid',
+            component: OrderInvalid
+          },
+          {
+            path: 'orderPay',
+            name: 'OrderPay',
+            component: OrderPay
+          },
+          {
+            path: 'orderPayed',
+            name: 'OrderPayed',
+            component: OrderPayed
+          },
+          {
+            path: 'orderStatistical',
+            name: 'OrderStatistical',
+            component: OrderStatistical
+          }
+        ]
+      },
+      {
+        path: 'delivery',
+        name: 'Delivery',
+        component: Delivery,
+        children: [
+          {
+            path: '',
+            name: 'DefaultDelivery',
+            redirect: 'delivering'
+          },
+          {
+            path: 'delivering',
+            name: 'Delivering',
+            component: Delivering
+          },
+          {
+            path: 'deliveryConfirm',
+            name: 'DeliveryConfirm',
+            component: DeliveryConfirm
+          },
+          {
+            path: 'deliveryFinish',
+            name: 'DeliveryFinish',
+            component: DeliveryFinish
+          }
+        ]
+      },
+      {
+        path: 'warning',
+        name: 'Warning',
+        component: Warning,
+        children: [
+          {
+            path: '',
+            name: 'DefaultWarning',
+            redirect: 'userWarning'
+          },
+          {
+            path: 'userWarning',
+            name: 'UserWarning',
+            component: UserWarning
+          },
+          {
+            path: 'orderWarning',
+            name: 'OrderWarning',
+            component: OrderWarning
+          },
+          {
+            path: 'stocksWarning',
+            name: 'StocksWarning',
+            component: StocksWarning
+          }
+        ]
+      },
+      {
+        path: 'mine',
+        name: 'Mine',
+        component: Mine,
+        children: [
+          {
+            path: '',
+            name: 'DefaultMine',
+            redirect: 'myCart'
+          },
+          {
+            path: 'myCart',
+            name: 'MyCart',
+            component: MyCart
+          },
+          {
+            path: 'myOrder',
+            name: 'MyOrder',
+            component: MyOrder
+          },
+          {
+            path: 'myDelivery',
+            name: 'MyDelivery',
+            component: MyDelivery
+          }
         ]
       }
     ]

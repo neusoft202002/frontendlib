@@ -1,10 +1,10 @@
 <template>
-    <h1>USER ADDRESS</h1>
+    <h1>正在配送</h1>
 </template>
 
 <script>
     export default {
-        name: "UserAddress"
+        name: "Delivering"
     }
 </script>
 

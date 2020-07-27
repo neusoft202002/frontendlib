@@ -26,14 +26,8 @@
     export default {
         name: "UserInfo",
         data() {
-            const item = {
-                date: '2016-05-02',
-                name: '王小虎',
-                address: '上海市普陀区金沙江路 1518 弄'
-            };
             return {
                 tableData: [],
-                activeIndex: '1'
             }
         },
         created() {
@@ -45,10 +39,14 @@
         },
         methods: {
             editClick(row) {
-                console.log(row);
+                axios.get("http://localhost:8888/getAllUser").then(res => {
+                    console.log(res);
+                })
             },
             deleteClick(row) {
-                console.log(row);
+                axios.get("http://localhost:8888/deleteUser/" + row.id).then(res => {
+                    console.log(res);
+                })
             }
         }
     }

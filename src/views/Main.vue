@@ -13,12 +13,32 @@
       </div>
       <el-menu default-active="/main/user" :router="true">
         <el-menu-item index="/main/user">
-          <i class="el-icon-user"></i>
-          <span slot="title">用户</span>
+          <i class="el-icon-user-solid"></i>
+          <span slot="title">用户管理</span>
         </el-menu-item>
         <el-menu-item index="/main/product">
-          <i class="el-icon-goods"></i>
-          <span slot="title">商品</span>
+          <i class="el-icon-s-goods"></i>
+          <span slot="title">商品管理</span>
+        </el-menu-item>
+        <el-menu-item index="/main/cart">
+          <i class="el-icon-star-on"></i>
+          <span slot="title">购物车</span>
+        </el-menu-item>
+        <el-menu-item index="/main/order">
+          <i class="el-icon-s-order"></i>
+          <span slot="title">订单管理</span>
+        </el-menu-item>
+        <el-menu-item index="/main/delivery">
+          <i class="el-icon-s-claim"></i>
+          <span slot="title">送货管理</span>
+        </el-menu-item>
+        <el-menu-item index="/main/warning">
+          <i class="el-icon-warning"></i>
+          <span slot="title">预警信息</span>
+        </el-menu-item>
+        <el-menu-item index="/main/mine">
+          <i class="el-icon-s-finance"></i>
+          <span slot="title">我的</span>
         </el-menu-item>
       </el-menu>
     </el-aside>
@@ -37,7 +57,7 @@
     },
     methods: {
       getInfo() {
-        console.log("获取信息")
+        this.$router.push("/main/mine")
       },
       logout() {
         console.log("hello")
