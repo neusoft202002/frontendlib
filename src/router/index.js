@@ -39,6 +39,7 @@ import OrderDetail from "../components/order/OrderDetail";
 import OrderAdd from "../components/order/OrderAdd";
 import DeliveryAll from "@/components/delivery/DeliveryAll";
 import DeliveryAdd from "@/components/delivery/DeliveryAdd";
+import AddWarning from "@/components/warning/AddWarning";
 
 Vue.use(VueRouter)
 
@@ -261,6 +262,11 @@ Vue.use(VueRouter)
             path: 'stocksWarning',
             name: 'StocksWarning',
             component: StocksWarning
+          },
+          {
+            path: 'addWarning',
+            name: 'AddWarning',
+            component: AddWarning
           }
         ]
       },

@@ -7,7 +7,7 @@
                 </el-select>
             </el-col>
             <el-col :span="6">
-                <el-input placeholder="请输入内容" v-model="username" :disabled="true"></el-input>
+                <el-input placeholder="姓名" v-model="username" :disabled="true"></el-input>
             </el-col>
         </el-row>
         <el-table :data="tableData" height="100%">

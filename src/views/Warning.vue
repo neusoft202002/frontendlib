@@ -13,6 +13,7 @@
                 <el-menu-item index="/main/warning/userWarning">用户警告</el-menu-item>
                 <el-menu-item index="/main/warning/orderWarning">订单警告</el-menu-item>
                 <el-menu-item index="/main/warning/stocksWarning">库存警告</el-menu-item>
+                <el-menu-item index="/main/warning/addWarning">添加警告</el-menu-item>
             </el-menu>
         </el-header>
 
