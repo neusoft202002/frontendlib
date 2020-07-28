@@ -22,7 +22,6 @@ import Mine from "../views/Mine";
 import OrderInvalid from "../components/order/OrderInvalid";
 import OrderPay from "../components/order/OrderPay";
 import OrderPayed from "../components/order/OrderPayed";
-import OrderStatistical from "../components/order/OrderStatistical";
 import Delivering from "../components/delivery/Delivering";
 import DeliveryConfirm from "../components/delivery/DeliveryConfirm";
 import DeliveryFinish from "../components/delivery/DeliveryFinish";
@@ -35,6 +34,9 @@ import MyDelivery from "../components/mine/MyDelivery";
 import AddressEdit from "../components/user/AddressEdit";
 import AddressAdd from "../components/user/AddressAdd";
 import CartAdd from "../components/cart/CartAdd";
+import OrderAll from "../components/order/OrderAll";
+import OrderDetail from "../components/order/OrderDetail";
+import OrderAdd from "../components/order/OrderAdd";
 
 Vue.use(VueRouter)
 
@@ -164,7 +166,12 @@ Vue.use(VueRouter)
           {
             path: '',
             name: 'DefaultOrder',
-            redirect: 'orderInvalid'
+            redirect: 'orderAll'
+          },
+          {
+            path: 'orderAll',
+            name: 'OrderAll',
+            component: OrderAll
           },
           {
             path: 'orderInvalid',
@@ -182,9 +189,14 @@ Vue.use(VueRouter)
             component: OrderPayed
           },
           {
-            path: 'orderStatistical',
-            name: 'OrderStatistical',
-            component: OrderStatistical
+            path: 'orderDetail',
+            name: 'OrderDetail',
+            component: OrderDetail
+          },
+          {
+            path: 'orderAdd',
+            name: 'OrderAdd',
+            component: OrderAdd
           }
         ]
       },

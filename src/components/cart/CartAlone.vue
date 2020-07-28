@@ -17,7 +17,7 @@
             </el-table-column>
             <el-table-column prop="price" label="单价" width="120">
             </el-table-column>
-            <el-table-column prop="amount" label="单价" width="120">
+            <el-table-column prop="amount" label="数量" width="120">
             </el-table-column>
             <el-table-column prop="account" label="总价">
             </el-table-column>

@@ -17,6 +17,7 @@
                 label="操作"
                 width="100">
             <template slot-scope="scope">
+                <el-button @click="editClick(scope.row)" type="text" size="small">详情</el-button>
                 <el-button @click="deleteClick(scope.row)" type="text" size="small">删除</el-button>
             </template>
         </el-table-column>
@@ -25,35 +26,33 @@
 
 <script>
     export default {
-        name: "OrderInvalid",
+        name: "OrderAll",
         data() {
             return {
                 tableData: []
             }
         },
         created() {
-            axios.get("http://localhost:8888/getOrderByStatus", {
-                params: {
-                    statusId: 3
-                }
-            }).then(res => {
+            axios.get("http://localhost:8888/getAllOrder").then(res => {
                 this.tableData = res.data
             })
         },
         methods: {
+            editClick(row) {
+                this.$router.push({
+                    name: 'OrderDetail',
+                    params: {
+                        orderId: row.orderId
+                    }
+                })
+            },
             deleteClick(row) {
                 axios.get("http://localhost:8888/deleteOrderById", {
                     params: {
                         orderId: row.orderId
                     }
                 }).then(res => {
-                    axios.get("http://localhost:8888/getOrderByStatus", {
-                        params: {
-                            statusId: 3
-                        }
-                    }).then(res => {
-                        this.tableData = res.data
-                    })
+                    this.tableData = res.data
                 })
             }
         }
