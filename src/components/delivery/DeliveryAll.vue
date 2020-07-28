@@ -25,7 +25,7 @@
 
 <script>
 export default {
-  name: "DeliveryFinish",
+  name: "DeliveryAll",
   data() {
     return {
       tableData: []
@@ -36,11 +36,7 @@ export default {
   },
   methods: {
     refresh() {
-      axios.get("http://localhost:8888/getDeliveryByStatus", {
-        params: {
-          deliveryStatusId: 3
-        }
-      }).then(res => {
+      axios.get("http://localhost:8888/getAllDelivery").then(res => {
         this.tableData = res.data
       }).catch(err => {
         console.log(err);

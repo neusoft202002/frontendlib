@@ -37,6 +37,8 @@ import CartAdd from "../components/cart/CartAdd";
 import OrderAll from "../components/order/OrderAll";
 import OrderDetail from "../components/order/OrderDetail";
 import OrderAdd from "../components/order/OrderAdd";
+import DeliveryAll from "@/components/delivery/DeliveryAll";
+import DeliveryAdd from "@/components/delivery/DeliveryAdd";
 
 Vue.use(VueRouter)
 
@@ -207,7 +209,12 @@ Vue.use(VueRouter)
           {
             path: '',
             name: 'DefaultDelivery',
-            redirect: 'delivering'
+            redirect: 'deliveryAll'
+          },
+          {
+            path: 'deliveryAll',
+            name: 'DeliveryAll',
+            component: DeliveryAll
           },
           {
             path: 'delivering',
@@ -223,6 +230,11 @@ Vue.use(VueRouter)
             path: 'deliveryFinish',
             name: 'DeliveryFinish',
             component: DeliveryFinish
+          },
+          {
+            path: 'deliveryAdd',
+            name: 'DeliveryAdd',
+            component: DeliveryAdd
           }
         ]
       },
