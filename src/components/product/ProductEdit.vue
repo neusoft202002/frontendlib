@@ -1,13 +1,16 @@
 <template>
     <div>
         <el-form ref="form" :model="form" label-width="80px" style="width: 300px">
-            <el-form-item label="用户编号">
+            <el-form-item label="商品编号">
                 <el-select v-model="form.proId" placeholder="请选择编号" @change="selectProduct(form.proId)">
                     <el-option v-for="(item, index) in proIds" :key="index" :label="item" :value="item"></el-option>
                 </el-select>
             </el-form-item>
             <el-form-item label="商品名">
                 <el-input v-model="form.proName"></el-input>
+            </el-form-item>
+            <el-form-item label="价格">
+                <el-input v-model="form.price"></el-input>
             </el-form-item>
             <el-form-item label="生产者">
                 <el-input v-model="form.producer"></el-input>
@@ -38,6 +41,7 @@
                 form: {
                     proId: '',
                     proName: '',
+                    price: '',
                     producer: '',
                     proAddress: '',
                     quantity: 0,
@@ -59,6 +63,7 @@
             selectProduct(proId) {
                 axios.get("http://localhost:8888/getProById", {params: {proId: proId}}).then(res => {
                     this.form.proName = res.data.proName;
+                    this.form.price = res.data.price;
                     this.form.producer = res.data.producer;
                     this.form.proAddress = res.data.proAddress;
                     this.form.quantity = res.data.stocks.quantity;
@@ -69,6 +74,7 @@
                 axios.post("http://localhost:8888/updateProduct", Qs.stringify({
                     proId: this.form.proId,
                     proName: this.form.proName,
+                    price: this.form.price,
                     producer: this.form.producer,
                     proAddress: this.form.proAddress
                 })).then(res => {

@@ -34,6 +34,7 @@ import MyOrder from "../components/mine/MyOrder";
 import MyDelivery from "../components/mine/MyDelivery";
 import AddressEdit from "../components/user/AddressEdit";
 import AddressAdd from "../components/user/AddressAdd";
+import CartAdd from "../components/cart/CartAdd";
 
 Vue.use(VueRouter)
 
@@ -147,6 +148,12 @@ Vue.use(VueRouter)
             path: 'cartAlone',
             name: 'CartAlone',
             component: CartAlone
+          }
+          ,
+          {
+            path: 'cartAdd',
+            name: 'CartAdd',
+            component: CartAdd
           }
         ]
       },

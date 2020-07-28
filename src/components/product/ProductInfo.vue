@@ -4,6 +4,8 @@
         </el-table-column>
         <el-table-column prop="proName" label="商品名" width="120">
         </el-table-column>
+        <el-table-column prop="price" label="价格" width="120">
+        </el-table-column>
         <el-table-column prop="producer" label="生产者" width="120">
         </el-table-column>
         <el-table-column prop="proAddress" label="生产地">

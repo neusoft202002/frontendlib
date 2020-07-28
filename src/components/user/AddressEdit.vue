@@ -64,6 +64,10 @@
                         id: id
                     }
                 }).then(res => {
+                    this.form.addressId = '';
+                    this.form.receiverName = '';
+                    this.form.phone = '';
+                    this.form.address = '';
                     this.addressIds = res.data;
                 })
             },

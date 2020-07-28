@@ -12,7 +12,7 @@
                 fixed="right"
                 label="修改库存">
             <template slot-scope="scope">
-                <el-input-number v-model="scope.row.quantity" @change="handleChange(scope.row)" :min="0" label="描述文字"></el-input-number>
+                <el-input-number v-model="scope.row.quantity" @change="handleChange(scope.row)" :min="0" label="库存"></el-input-number>
             </template>
         </el-table-column>
     </el-table>

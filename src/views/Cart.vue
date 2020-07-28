@@ -12,6 +12,7 @@
                     active-text-color="#ffd04b">
                 <el-menu-item index="/main/cart/cartAll">所有购物车</el-menu-item>
                 <el-menu-item index="/main/cart/cartAlone">详细购物车</el-menu-item>
+                <el-menu-item index="/main/cart/cartAdd">添加购物车</el-menu-item>
             </el-menu>
         </el-header>
 

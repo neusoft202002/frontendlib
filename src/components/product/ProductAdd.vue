@@ -4,6 +4,9 @@
             <el-form-item label="商品名">
                 <el-input v-model="form.proName"></el-input>
             </el-form-item>
+            <el-form-item label="价格">
+                <el-input v-model="form.price"></el-input>
+            </el-form-item>
             <el-form-item label="生产者">
                 <el-input v-model="form.producer"></el-input>
             </el-form-item>
@@ -33,6 +36,7 @@
             return {
                 form: {
                     proName: '',
+                    price: '',
                     producer: '',
                     proAddress: '',
                     quantity: 0,
@@ -44,6 +48,7 @@
             onSubmit() {
                 axios.post("http://localhost:8888/insertProduct", Qs.stringify({
                     proName: this.form.proName,
+                    price: this.form.price,
                     producer: this.form.producer,
                     proAddress: this.form.proAddress
                 })).then(res => {
