@@ -58,7 +58,6 @@
                 })
             },
             editClick(row) {
-                console.log(row)
                 this.$router.push({
                     name: 'AddressEdit',
                     params: {

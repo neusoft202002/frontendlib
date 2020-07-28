@@ -49,22 +49,20 @@ Vue.use(VueRouter)
   },
   {
     path: '/main',
-    name: 'Main',
     component: Main,
     children: [
       {
         path:'',
-        name: 'DefaultUser',
+        name: 'DefaultMain',
         redirect: 'user'
       },
       {
         path:'user',
-        name: 'User',
         component: User,
         children: [
           {
             path:'',
-            name: 'UserInfo',
+            name: 'DefaultUser',
             redirect: 'userInfo'
           },
           {
@@ -102,12 +100,11 @@ Vue.use(VueRouter)
       },
       {
         path: 'product',
-        name: 'Product',
         component: Product,
         children: [
           {
             path:'',
-            name: 'ProductInfo',
+            name: 'DefaultProduct',
             redirect: 'productInfo'
           },
           {
@@ -134,7 +131,6 @@ Vue.use(VueRouter)
       },
       {
         path: 'cart',
-        name: 'Cart',
         component: Cart,
         children: [
           {
@@ -156,7 +152,6 @@ Vue.use(VueRouter)
       },
       {
         path: 'order',
-        name: 'Order',
         component: Order,
         children: [
           {
@@ -188,7 +183,6 @@ Vue.use(VueRouter)
       },
       {
         path: 'delivery',
-        name: 'Delivery',
         component: Delivery,
         children: [
           {
@@ -215,7 +209,6 @@ Vue.use(VueRouter)
       },
       {
         path: 'warning',
-        name: 'Warning',
         component: Warning,
         children: [
           {
@@ -242,7 +235,6 @@ Vue.use(VueRouter)
       },
       {
         path: 'mine',
-        name: 'Mine',
         component: Mine,
         children: [
           {
