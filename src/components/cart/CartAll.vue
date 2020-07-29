@@ -26,7 +26,7 @@
             }
         },
         created() {
-            axios.get("http://localhost:8888/getAllCart").then(res => {
+            axios.get("getAllCart").then(res => {
                 this.tableData = res.data
             }).catch(err => {
                 console.log(err);

@@ -54,7 +54,7 @@
                 this.$refs[formName].validate((valid) => {
                     if (valid) {
                         let data = {name: this.form.username, password: this.form.password}
-                        axios.post("http://localhost:8888/login", Qs.stringify(data)).then(res => {
+                        axios.post("login", Qs.stringify(data)).then(res => {
                                 sessionStorage.setItem("username", this.form.username)
                                 this.$router.push("/main");
                             }

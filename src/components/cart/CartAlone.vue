@@ -53,7 +53,7 @@
             }
         },
         created() {
-            axios.get("http://localhost:8888/getAllId").then(res => {
+            axios.get("/getAllId").then(res => {
                 this.userIds = res.data;
             })
             if (typeof(this.$route.params.userId) != "undefined") {
@@ -63,19 +63,19 @@
         },
         methods: {
             selectUser(userId) {
-                axios.get("http://localhost:8888/getUserCartById", {
+                axios.get("getUserCartById", {
                     params: {
                         userId: userId
                     }
                 }).then(res => {
                     this.tableData = res.data;
-                    axios.get("http://localhost:8888/getById", {params: {id: userId}}).then(res => {
+                    axios.get("getById", {params: {id: userId}}).then(res => {
                         this.username = res.data.name;
                     })
                 })
             },
             deleteClick(row) {
-                axios.get("http://localhost:8888/deleteCart", {
+                axios.get("deleteCart", {
                     params: {
                         userId: this.userId,
                         proId: row.proId
@@ -85,12 +85,12 @@
                 })
             },
             handleChange(row) {
-                axios.post("http://localhost:8888/updateAmount", Qs.stringify({
+                axios.post("updateAmount", Qs.stringify({
                     userId: this.userId,
                     proId: row.proId,
                     amount: row.amount
                 })).then(res => {
-                    axios.get("http://localhost:8888/getUserCartById", {
+                    axios.get("getUserCartById", {
                         params: {
                             userId: this.userId
                         }

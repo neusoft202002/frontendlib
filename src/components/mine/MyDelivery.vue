@@ -1,11 +1,86 @@
 <template>
-    <h1>我都配送</h1>
+  <el-table :data="tableData" height="100%">
+    <el-table-column prop="deliveryId" label="配送编号" width="140">
+    </el-table-column>
+    <el-table-column prop="orderId" label="订单号" width="120">
+    </el-table-column>
+    <el-table-column prop="userId" label="用户编号" width="120">
+    </el-table-column>
+    <el-table-column prop="username" label="用户姓名" width="120">
+    </el-table-column>
+    <el-table-column prop="deliveryStatusId" label="状态号" width="120">
+    </el-table-column>
+    <el-table-column prop="deliveryStatusInfo" label="状态信息">
+    </el-table-column>
+    <el-table-column
+        fixed="right"
+        label="操作"
+        width="200">
+      <template slot-scope="scope">
+        <el-button @click="confirmClick(scope.row)" type="text" size="small">确认收货</el-button>
+        <el-button @click="deleteClick(scope.row)" type="text" size="small">删除</el-button>
+      </template>
+    </el-table-column>
+  </el-table>
 </template>
 
 <script>
-    export default {
-        name: "MyDelivery"
+import Qs from "qs";
+
+export default {
+  name: "MyDelivery",
+  data() {
+    return {
+      userId: '',
+      tableData: []
     }
+  },
+  created() {
+    axios.get("/getAdmin2UserId", {
+      params: {
+        adminName: sessionStorage.getItem("username")
+      }
+    }).then(res => {
+      this.userId = res.data
+      this.refresh()
+    })
+  },
+  methods: {
+    refresh() {
+      axios.get("getAllDeliveryWithUserId", {
+        params: {
+          userId: this.userId
+        }
+      }).then(res => {
+        this.tableData = res.data
+      }).catch(err => {
+        console.log(err);
+      })
+    },
+    confirmClick(row) {
+      axios.get("userUpdateStatus", {
+        params: {
+          userId: this.userId,
+          deliveryId: row.deliveryId,
+          deliveryStatusId: 3
+        }
+      }).then( res=> {
+        this.tableData = res.data;
+      })
+    },
+    deleteClick(row) {
+      axios.get("deleteDeliveryById", {
+        params: {
+          deliveryId: row.deliveryId
+        }
+      }).then(res => {
+        this.refresh()
+      }).catch(err => {
+        console.log(err);
+      })
+    }
+  }
+}
 </script>
 
 <style scoped>

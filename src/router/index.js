@@ -40,6 +40,8 @@ import OrderAdd from "../components/order/OrderAdd";
 import DeliveryAll from "@/components/delivery/DeliveryAll";
 import DeliveryAdd from "@/components/delivery/DeliveryAdd";
 import AddWarning from "@/components/warning/AddWarning";
+import MyCartAdd from "@/components/mine/MyCartAdd";
+import MyOrderInfo from "@/components/mine/MyOrderInfo";
 
 Vue.use(VueRouter)
 
@@ -293,6 +295,16 @@ Vue.use(VueRouter)
             path: 'myDelivery',
             name: 'MyDelivery',
             component: MyDelivery
+          },
+          {
+            path: 'myCartAdd',
+            name: 'MyCartAdd',
+            component: MyCartAdd
+          },
+          {
+            path: 'myOrderInfo',
+            name: 'MyOrderInfo',
+            component: MyOrderInfo
           }
         ]
       }

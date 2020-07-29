@@ -13,6 +13,8 @@
                 <el-menu-item index="/main/mine/myCart">我的购物车</el-menu-item>
                 <el-menu-item index="/main/mine/myOrder">我的订单</el-menu-item>
                 <el-menu-item index="/main/mine/myDelivery">我的配送</el-menu-item>
+              <el-menu-item index="/main/mine/myCartAdd">加购</el-menu-item>
+              <el-menu-item index="/main/mine/myOrderInfo">订单详情</el-menu-item>
             </el-menu>
         </el-header>
 

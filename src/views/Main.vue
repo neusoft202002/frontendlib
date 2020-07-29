@@ -30,7 +30,7 @@
         </el-menu-item>
         <el-menu-item index="/main/delivery">
           <i class="el-icon-s-claim"></i>
-          <span slot="title">送货管理</span>
+          <span slot="title">配送管理</span>
         </el-menu-item>
         <el-menu-item index="/main/warning">
           <i class="el-icon-warning"></i>
@@ -61,7 +61,7 @@
       },
       logout() {
         console.log("hello")
-        axios.get("http://localhost:8888/logout").then(res=> {
+        axios.get("logout").then(res=> {
           console.log(res);
           this.$router.push("/login");
         }).catch(err=> {

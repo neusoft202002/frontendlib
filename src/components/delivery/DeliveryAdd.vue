@@ -1,6 +1,6 @@
 <template>
   <el-form ref="form" :model="form" label-width="80px" style="width: 300px">
-    <el-form-item label="用户编号">
+    <el-form-item label="订单编号">
       <el-select v-model="form.orderId" placeholder="请选择编号">
         <el-option v-for="(item, index) in orderIds" :key="index" :label="item" :value="item"></el-option>
       </el-select>
