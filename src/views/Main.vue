@@ -40,6 +40,10 @@
           <i class="el-icon-s-finance"></i>
           <span slot="title">我的</span>
         </el-menu-item>
+        <el-menu-item index="/main/img">
+          <i class="el-icon-picture"></i>
+          <span slot="title">图片墙</span>
+        </el-menu-item>
       </el-menu>
     </el-aside>
     <router-view></router-view>

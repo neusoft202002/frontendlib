@@ -42,6 +42,7 @@ import DeliveryAdd from "@/components/delivery/DeliveryAdd";
 import AddWarning from "@/components/warning/AddWarning";
 import MyCartAdd from "@/components/mine/MyCartAdd";
 import MyOrderInfo from "@/components/mine/MyOrderInfo";
+import Img from "@/views/Img";
 
 Vue.use(VueRouter)
 
@@ -307,6 +308,11 @@ Vue.use(VueRouter)
             component: MyOrderInfo
           }
         ]
+      },
+      {
+        path: 'img',
+        name: 'Img',
+        component: Img
       }
     ]
   }
