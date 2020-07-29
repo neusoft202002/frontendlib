@@ -31,7 +31,7 @@
             }
         },
         created() {
-            axios.get("http://localhost:8888/getAllProduct").then(res => {
+            axios.get("getAllProduct").then(res => {
                 this.tableData = res.data
             }).catch(err => {
                 console.log(err);
@@ -48,7 +48,7 @@
             },
             deleteClick(row) {
                 console.log(row);
-                axios.get("http://localhost:8888/deleteProduct/"+row.proId).then(res => {
+                axios.get("deleteProduct/"+row.proId).then(res => {
                     this.tableData = res.data
                 })
             }

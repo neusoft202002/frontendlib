@@ -47,7 +47,7 @@
             }
         },
         created() {
-            axios.get("http://localhost:8888/getAllId").then(res => {
+            axios.get("getAllId").then(res => {
                 this.userIds = res.data;
             })
             if (typeof(this.$route.params.userId) != "undefined") {
@@ -59,7 +59,7 @@
         },
         methods: {
             selectUser(id) {
-                axios.get("http://localhost:8888/getUserAddressId", {
+                axios.get("getUserAddressId", {
                     params: {
                         id: id
                     }
@@ -72,7 +72,7 @@
                 })
             },
             selectAddress(id) {
-                axios.get("http://localhost:8888/getAddressById", {
+                axios.get("getAddressById", {
                     params: {
                         userId: this.form.userId,
                         addressId: id
@@ -84,7 +84,7 @@
                 })
             },
             onSubmit() {
-                axios.post("http://localhost:8888/updateAddress", Qs.stringify(this.form)).then(res => {
+                axios.post("updateAddress", Qs.stringify(this.form)).then(res => {
                     this.$router.push("/main/user/userAddress")
                 }).catch(err => {
                     console.log(err)

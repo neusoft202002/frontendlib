@@ -27,7 +27,7 @@
             }
         },
         created() {
-            axios.get("http://localhost:8888/getAllProductWithStocks").then(res => {
+            axios.get("getAllProductWithStocks").then(res => {
                 for (let item of res.data) {
                     this.tableData.push({
                         proId: item.proId,
@@ -42,7 +42,7 @@
         },
         methods: {
             handleChange(row) {
-                axios.get("http://localhost:8888/updateQuantity", {
+                axios.get("updateQuantity", {
                     params: {
                         proId: row.proId,
                         quantity: row.quantity

@@ -38,13 +38,13 @@
       }
     },
     created() {
-      axios.get("http://localhost:8888/getUserWarning").then(res => {
+      axios.get("getUserWarning").then(res => {
         this.tableData = res.data
       })
     },
     methods: {
       editClick(row) {
-        axios.post("http://localhost:8888/updateUserWarning", QS.stringify({
+        axios.post("updateUserWarning", QS.stringify({
           warningId: row.warningId,
           warningInfo: row.warningInfo,
           warningDate: row.warningDate

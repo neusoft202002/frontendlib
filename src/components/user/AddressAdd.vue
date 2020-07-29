@@ -40,13 +40,13 @@
             }
         },
         created() {
-            axios.get("http://localhost:8888/getAllId").then(res => {
+            axios.get("getAllId").then(res => {
                 this.userIds = res.data;
             })
         },
         methods: {
         onSubmit() {
-            axios.post("http://localhost:8888/insertAddress", Qs.stringify(this.form)).then(res => {
+            axios.post("insertAddress", Qs.stringify(this.form)).then(res => {
                 this.$router.push("/main/user/userAddress")
             }).catch(err => {
                 console.log(err)

@@ -46,7 +46,7 @@
             }
         },
         created() {
-            axios.get("http://localhost:8888/getAllId").then(res => {
+            axios.get("getAllId").then(res => {
                 console.log(res);
                 this.usersId = res.data;
             })
@@ -57,7 +57,7 @@
         },
         methods: {
             selectTrigger(selectData) {
-                axios.get("http://localhost:8888/getById", {params: {id: selectData}}).then(res => {
+                axios.get("getById", {params: {id: selectData}}).then(res => {
                     this.form.name = res.data.name;
                     this.form.age = res.data.age;
                     this.form.sex = res.data.sex;
@@ -67,7 +67,7 @@
             onSubmit() {
                 console.log(this.form);
                 // this.$router.push("/main/user/userInfo")
-                axios.post("http://localhost:8888/updateUser", Qs.stringify(this.form)).then(res => {
+                axios.post("updateUser", Qs.stringify(this.form)).then(res => {
                     this.$router.push("/main/user/userInfo")
                 }).catch(err => {
                     console.log(err)

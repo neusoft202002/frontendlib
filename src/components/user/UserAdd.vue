@@ -41,7 +41,7 @@
         },
         methods: {
             onSubmit() {
-                axios.post("http://localhost:8888/insertUser", Qs.stringify(this.form)).then(res => {
+                axios.post("insertUser", Qs.stringify(this.form)).then(res => {
                     this.$router.push("/main/user/userInfo")
                 }).catch(err => {
                     console.log(err)

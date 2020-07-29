@@ -33,7 +33,7 @@
             }
         },
         created() {
-            axios.get("http://localhost:8888/getOrderByStatus", {
+            axios.get("getOrderByStatus", {
                 params: {
                     statusId: 1
                 }
@@ -43,7 +43,7 @@
         },
         methods: {
             payClick(row) {
-                axios.get("http://localhost:8888/updateOrderStatus", {
+                axios.get("updateOrderStatus", {
                     params: {
                         orderId: row.orderId,
                         statusId: 2,
@@ -54,7 +54,7 @@
                 })
             },
             cancelClick(row) {
-                axios.get("http://localhost:8888/updateOrderStatus", {
+                axios.get("updateOrderStatus", {
                     params: {
                         orderId: row.orderId,
                         statusId: 3,

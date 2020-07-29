@@ -32,30 +32,27 @@
             }
         },
         created() {
-            axios.get("http://localhost:8888/getOrderByStatus", {
-                params: {
-                    statusId: 2
-                }
-            }).then(res => {
-                this.tableData = res.data
-            })
+            this.refresh();
         },
         methods: {
-            deleteClick(row) {
-                axios.get("http://localhost:8888/deleteOrderById", {
-                    params: {
-                        orderId: row.orderId
-                    }
-                }).then(res => {
-                    axios.get("http://localhost:8888/getOrderByStatus", {
-                        params: {
-                            statusId: 2
-                        }
-                    }).then(res => {
-                        this.tableData = res.data
-                    })
-                })
-            }
+          refresh() {
+            axios.get("getOrderByStatus", {
+              params: {
+                statusId: 2
+              }
+            }).then(res => {
+              this.tableData = res.data
+            })
+          },
+          deleteClick(row) {
+              axios.get("deleteOrderById", {
+                  params: {
+                      orderId: row.orderId
+                  }
+              }).then(res => {
+                this.refresh();
+              })
+          }
         }
     }
 </script>

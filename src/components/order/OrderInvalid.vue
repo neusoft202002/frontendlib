@@ -32,7 +32,7 @@
             }
         },
         created() {
-            axios.get("http://localhost:8888/getOrderByStatus", {
+            axios.get("getOrderByStatus", {
                 params: {
                     statusId: 3
                 }
@@ -42,12 +42,12 @@
         },
         methods: {
             deleteClick(row) {
-                axios.get("http://localhost:8888/deleteOrderById", {
+                axios.get("deleteOrderById", {
                     params: {
                         orderId: row.orderId
                     }
                 }).then(res => {
-                    axios.get("http://localhost:8888/getOrderByStatus", {
+                    axios.get("getOrderByStatus", {
                         params: {
                             statusId: 3
                         }

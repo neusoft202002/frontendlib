@@ -33,7 +33,7 @@
             }
         },
         created() {
-            axios.get("http://localhost:8888/getAllOrderId").then(res => {
+            axios.get("getAllOrderId").then(res => {
                 this.orderIds = res.data;
             })
             if (typeof(this.$route.params.orderId) != "undefined") {
@@ -43,7 +43,7 @@
         },
         methods: {
             selectOrder(orderId) {
-                axios.get("http://localhost:8888/getOrderById", {
+                axios.get("getOrderById", {
                     params: {
                         orderId: orderId
                     }

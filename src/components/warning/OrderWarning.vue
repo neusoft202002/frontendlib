@@ -38,13 +38,13 @@ export default {
     }
   },
   created() {
-    axios.get("http://localhost:8888/getOrderWarning").then(res => {
+    axios.get("getOrderWarning").then(res => {
       this.tableData = res.data
     })
   },
   methods: {
     editClick(row) {
-      axios.post("http://localhost:8888/updateOrderWarning", QS.stringify({
+      axios.post("updateOrderWarning", QS.stringify({
         warningId: row.warningId,
         warningInfo: row.warningInfo,
         warningDate: row.warningDate
@@ -53,7 +53,7 @@ export default {
       })
     },
     deleteClick(row) {
-      axios.get("http://localhost:8888/deleteOrderWarning", {
+      axios.get("deleteOrderWarning", {
         params: {
           orderWarningId: row.warningId
         }

@@ -46,13 +46,13 @@
         },
         methods: {
             onSubmit() {
-                axios.post("http://localhost:8888/insertProduct", Qs.stringify({
+                axios.post("insertProduct", Qs.stringify({
                     proName: this.form.proName,
                     price: this.form.price,
                     producer: this.form.producer,
                     proAddress: this.form.proAddress
                 })).then(res => {
-                    axios.post("http://localhost:8888/insertStocks", Qs.stringify({
+                    axios.post("insertStocks", Qs.stringify({
                         proId: res.data.proId,
                         quantity: this.form.quantity,
                         warehouse: this.form.warehouse

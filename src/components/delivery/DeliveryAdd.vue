@@ -24,13 +24,13 @@ export default {
     }
   },
   created() {
-    axios.get("http://localhost:8888/getIdWithoutDelivery").then(res => {
+    axios.get("getIdWithoutDelivery").then(res => {
       this.orderIds = res.data
     })
   },
   methods: {
     onSubmit(){
-      axios.get("http://localhost:8888/insertDelivery", {
+      axios.get("insertDelivery", {
         params: {
           orderId: this.form.orderId
         }

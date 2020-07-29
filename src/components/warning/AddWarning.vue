@@ -41,15 +41,15 @@ export default {
       let routerUrl = ""
       switch (this.form.warningStatus) {
         case "1":
-          url = "http://localhost:8888/insertUserWarning";
+          url = "insertUserWarning";
           routerUrl = "/main/warning/userWarning";
           break;
         case "2":
-          url = "http://localhost:8888/insertOrderWarning";
+          url = "insertOrderWarning";
           routerUrl = "/main/warning/orderWarning";
           break;
         case "3":
-          url = "http://localhost:8888/insertStocksWarning";
+          url = "insertStocksWarning";
           routerUrl = "/main/warning/stocksWarning";
       }
       axios.post(url, QS.stringify({

@@ -51,7 +51,7 @@
             }
         },
         created() {
-            axios.get("http://localhost:8888/getProIds").then(res => {
+            axios.get("getProIds").then(res => {
                 this.proIds = res.data
             })
             if (typeof(this.$route.params.proId) != "undefined") {
@@ -61,7 +61,7 @@
         },
         methods: {
             selectProduct(proId) {
-                axios.get("http://localhost:8888/getProById", {params: {proId: proId}}).then(res => {
+                axios.get("getProById", {params: {proId: proId}}).then(res => {
                     this.form.proName = res.data.proName;
                     this.form.price = res.data.price;
                     this.form.producer = res.data.producer;
@@ -71,14 +71,14 @@
                 })
             },
             onSubmit() {
-                axios.post("http://localhost:8888/updateProduct", Qs.stringify({
+                axios.post("updateProduct", Qs.stringify({
                     proId: this.form.proId,
                     proName: this.form.proName,
                     price: this.form.price,
                     producer: this.form.producer,
                     proAddress: this.form.proAddress
                 })).then(res => {
-                    axios.post("http://localhost:8888/updateStocks", Qs.stringify({
+                    axios.post("updateStocks", Qs.stringify({
                         proId: this.form.proId,
                         quantity: this.form.quantity,
                         warehouse: this.form.warehouse

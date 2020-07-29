@@ -33,7 +33,7 @@
             }
         },
         created() {
-            axios.get("http://localhost:8888/getAllOrder").then(res => {
+            axios.get("getAllOrder").then(res => {
                 this.tableData = res.data
             })
         },
@@ -47,7 +47,7 @@
                 })
             },
             deleteClick(row) {
-                axios.get("http://localhost:8888/deleteOrderById", {
+                axios.get("deleteOrderById", {
                     params: {
                         orderId: row.orderId
                     }

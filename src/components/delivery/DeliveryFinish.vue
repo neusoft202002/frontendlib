@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     refresh() {
-      axios.get("http://localhost:8888/getDeliveryByStatus", {
+      axios.get("getDeliveryByStatus", {
         params: {
           deliveryStatusId: 3
         }
@@ -47,7 +47,7 @@ export default {
       })
     },
     deleteClick(row) {
-      axios.get("http://localhost:8888/deleteDeliveryById", {
+      axios.get("deleteDeliveryById", {
         params: {
           deliveryId: row.deliveryId
         }

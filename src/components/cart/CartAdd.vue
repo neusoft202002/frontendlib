@@ -46,27 +46,27 @@
             }
         },
         created() {
-            axios.get("http://localhost:8888/getAllId").then(res => {
+            axios.get("getAllId").then(res => {
                 this.userIds = res.data;
             })
-            axios.get("http://localhost:8888/getProIds").then(res => {
+            axios.get("/getProIds").then(res => {
                 this.proIds = res.data;
             })
         },
         methods: {
             selectUser(userId) {
-                axios.get("http://localhost:8888/getById", {params: {id: userId}}).then(res => {
+                axios.get("getById", {params: {id: userId}}).then(res => {
                     this.form.username = res.data.name;
                 })
             },
             selectProduct(proId) {
-                axios.get("http://localhost:8888/getProById", {params: {proId: proId}}).then(res => {
+                axios.get("getProById", {params: {proId: proId}}).then(res => {
                     console.log(res);
                     this.form.proName = res.data.proName;
                 })
             },
             onSubmit() {
-                axios.post("http://localhost:8888/insertCart", Qs.stringify({
+                axios.post("insertCart", Qs.stringify({
                     userId: this.form.userId,
                     proId: this.form.proId,
                     amount: this.form.amount

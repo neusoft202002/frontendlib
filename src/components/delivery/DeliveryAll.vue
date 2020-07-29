@@ -36,14 +36,14 @@ export default {
   },
   methods: {
     refresh() {
-      axios.get("http://localhost:8888/getAllDelivery").then(res => {
+      axios.get("getAllDelivery").then(res => {
         this.tableData = res.data
       }).catch(err => {
         console.log(err);
       })
     },
     deleteClick(row) {
-      axios.get("http://localhost:8888/deleteDeliveryById", {
+      axios.get("deleteDeliveryById", {
         params: {
           deliveryId: row.deliveryId
         }

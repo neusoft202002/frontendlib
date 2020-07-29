@@ -34,7 +34,7 @@ export default {
     }
   },
   created() {
-    axios.get("http://localhost:8888/getDeliveryByStatus", {
+    axios.get("getDeliveryByStatus", {
       params: {
         deliveryStatusId: 1
       }
@@ -46,7 +46,7 @@ export default {
   },
   methods: {
     finishClick(row) {
-      axios.post("http://localhost:8888/updateDeliveryStatus", Qs.stringify({
+      axios.post("updateDeliveryStatus", Qs.stringify({
         deliveryId: row.deliveryId,
         deliveryStatusId: 2,
         oldStatusId: 1

@@ -31,7 +31,7 @@
             }
         },
         created() {
-            axios.get("http://localhost:8888/getAllUser").then(res => {
+            axios.get("getAllUser").then(res => {
                 this.tableData = res.data
             }).catch(err => {
                 console.log(err);
@@ -47,7 +47,7 @@
                 })
             },
             deleteClick(row) {
-                axios.get("http://localhost:8888/deleteUser/" + row.id).then(res => {
+                axios.get("deleteUser/" + row.id).then(res => {
                     this.tableData = res.data
                 })
             }

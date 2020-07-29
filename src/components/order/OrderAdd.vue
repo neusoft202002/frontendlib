@@ -44,21 +44,21 @@
             }
         },
         created() {
-            axios.get("http://localhost:8888/getAllId").then(res => {
+            axios.get("getAllId").then(res => {
                 this.userIds = res.data;
             })
-            axios.get("http://localhost:8888/getProIds").then(res => {
+            axios.get("getProIds").then(res => {
                 this.proIds = res.data.toString();
             })
         },
         methods: {
             selectUser(userId) {
-                axios.get("http://localhost:8888/getById", {params: {id: userId}}).then(res => {
+                axios.get("getById", {params: {id: userId}}).then(res => {
                     this.form.username = res.data.name;
                 })
             },
             onSubmit() {
-                axios.post("http://localhost:8888/insertOrder", Qs.stringify({
+                axios.post("insertOrder", Qs.stringify({
                     userId: this.form.userId,
                     proIds: this.form.proIds,
                     amounts: this.form.amounts

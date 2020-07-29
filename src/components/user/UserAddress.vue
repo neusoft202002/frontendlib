@@ -38,7 +38,7 @@
         methods: {
             getAllAddress() {
                 this.tableData = []
-                axios.get("http://localhost:8888/getAddress").then(res => {
+                axios.get("getAddress").then(res => {
                     for (let item of res.data) {
                         for (let addressElement of item.address) {
                             if (addressElement.address != null) {
@@ -67,7 +67,7 @@
                 })
             },
             deleteClick(row) {
-                axios.get("http://localhost:8888/deleteAddress",
+                axios.get("deleteAddress",
                     {params: {userId: row.userId, addressId: row.addressId}}).then(res => {
                     this.getAllAddress();
                 })
